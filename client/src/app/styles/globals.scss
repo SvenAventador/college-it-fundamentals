@@ -1,4 +1,9 @@
-@use '@/app/styles/variables/base' as *;
+@use "@/app/styles/variables/base" as *;
+
+html,
+body {
+  scroll-behavior: smooth;
+}
 
 body {
   font-family: $font-family-base;
@@ -12,7 +17,7 @@ body {
 }
 
 a {
-  color: var(--primary-color);
+  color: var(--text-color);
   text-decoration: none;
   transition: color 0.3s ease;
 
@@ -23,34 +28,41 @@ a {
   }
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   font-weight: 600;
   color: var(--text-color);
-  margin-bottom: 0.5em;
+  margin-bottom: 0;
+  scroll-margin-top: 80px;
 }
 
-ul, ol {
+ul,
+ol {
   list-style-position: inside;
   margin-bottom: 1em;
 }
 
-button {
-  font-family: inherit;
-  font-size: 1rem;
-  cursor: pointer;
-  background-color: var(--primary-color);
-  color: white;
-  border: none;
-  padding: 0.5em 1em;
-  border-radius: $radius-sm;
-  transition: background-color 0.3s ease;
+// button {
+//   font-family: inherit;
+//   font-size: 1rem;
+//   cursor: pointer;
+//   background-color: var(--primary-color);
+//   color: white;
+//   border: none;
+//   padding: 0.5em 1em;
+//   border-radius: $radius-sm;
+//   transition: background-color 0.3s ease;
 
-  &:hover,
-  &:focus {
-    background-color: var(--secondary-color);
-    outline: none;
-  }
-}
+//   &:hover,
+//   &:focus {
+//     background-color: var(--secondary-color);
+//     outline: none;
+//   }
+// }
 
 input,
 textarea {

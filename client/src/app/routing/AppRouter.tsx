@@ -1,7 +1,7 @@
 import { Route, Routes } from 'react-router-dom';
-import { HomePage, NotFound } from '@/pages';
+import { HomePage, NotFound, SubjectPage } from '@/pages';
 import { AppLoaderLayout, MainLayout } from '@/app/layouts';
-import { sections } from '@/shared/const/sections';
+import { LecturePage } from '@/pages/LecturePage';
 
 export const AppRouter = () => {
   return (
@@ -15,16 +15,14 @@ export const AppRouter = () => {
       >
         <Route path="/" element={<HomePage />} />
 
-        {sections.map(({ id, tabs }) => (
-          <Route key={id} path={`/${id}`} element={<NotFound />}>
-            {Object.entries(tabs).map(([tab, path]) => {
-              const relativePath = path.replace(`/${id}/`, '');
-              return (
-                <Route key={tab} path={relativePath} element={<NotFound />} />
-              );
-            })}
-          </Route>
-        ))}
+        <Route path="/:id" element={<SubjectPage />} />
+        <Route path="/:id/lectures" element={<SubjectPage />} />
+        <Route path="/:id/practices" element={<SubjectPage />} />
+        <Route path="/:id/labs" element={<SubjectPage />} />
+
+        <Route path="/:id/:tab/:materialId" element={<LecturePage />} />
+        <Route path="/:id/:tab/:materialId" element={<LecturePage />} />
+        <Route path="/:id/:tab/:materialId" element={<LecturePage />} />
 
         <Route path="*" element={<NotFound />} />
       </Route>
